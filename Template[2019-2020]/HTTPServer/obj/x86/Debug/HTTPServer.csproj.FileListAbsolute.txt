@@ -1,0 +1,9 @@
+C:\Users\dell\Desktop\Template\HTTPServer\bin\Debug\HTTPServer.exe
+C:\Users\dell\Desktop\Template\HTTPServer\bin\Debug\HTTPServer.pdb
+C:\Users\dell\Desktop\Template\HTTPServer\obj\x86\Debug\HTTPServer.exe
+C:\Users\dell\Desktop\Template\HTTPServer\obj\x86\Debug\HTTPServer.pdb
+D:\_Third Year\Fall 2019 (5th Semester)\Computer Networks [CSY 465] (3CH)\Project\NetworkProject[2019-2020]\Template[2019-2020]\HTTPServer\bin\Debug\HTTPServer.exe
+D:\_Third Year\Fall 2019 (5th Semester)\Computer Networks [CSY 465] (3CH)\Project\NetworkProject[2019-2020]\Template[2019-2020]\HTTPServer\bin\Debug\HTTPServer.pdb
+D:\_Third Year\Fall 2019 (5th Semester)\Computer Networks [CSY 465] (3CH)\Project\NetworkProject[2019-2020]\Template[2019-2020]\HTTPServer\obj\x86\Debug\HTTPServer.csproj.CoreCompileInputs.cache
+D:\_Third Year\Fall 2019 (5th Semester)\Computer Networks [CSY 465] (3CH)\Project\NetworkProject[2019-2020]\Template[2019-2020]\HTTPServer\obj\x86\Debug\HTTPServer.exe
+D:\_Third Year\Fall 2019 (5th Semester)\Computer Networks [CSY 465] (3CH)\Project\NetworkProject[2019-2020]\Template[2019-2020]\HTTPServer\obj\x86\Debug\HTTPServer.pdb
