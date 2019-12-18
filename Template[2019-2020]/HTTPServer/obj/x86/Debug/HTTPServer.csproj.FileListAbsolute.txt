@@ -7,3 +7,9 @@ D:\_Third Year\Fall 2019 (5th Semester)\Computer Networks [CSY 465] (3CH)\Projec
 D:\_Third Year\Fall 2019 (5th Semester)\Computer Networks [CSY 465] (3CH)\Project\NetworkProject[2019-2020]\Template[2019-2020]\HTTPServer\obj\x86\Debug\HTTPServer.csproj.CoreCompileInputs.cache
 D:\_Third Year\Fall 2019 (5th Semester)\Computer Networks [CSY 465] (3CH)\Project\NetworkProject[2019-2020]\Template[2019-2020]\HTTPServer\obj\x86\Debug\HTTPServer.exe
 D:\_Third Year\Fall 2019 (5th Semester)\Computer Networks [CSY 465] (3CH)\Project\NetworkProject[2019-2020]\Template[2019-2020]\HTTPServer\obj\x86\Debug\HTTPServer.pdb
+C:\Users\Ahmed Hatem\Documents\NetworksProject\HTTP_Server-\Template[2019-2020]\HTTPServer\bin\Debug\HTTPServer.exe
+C:\Users\Ahmed Hatem\Documents\NetworksProject\HTTP_Server-\Template[2019-2020]\HTTPServer\bin\Debug\HTTPServer.pdb
+C:\Users\Ahmed Hatem\Documents\NetworksProject\HTTP_Server-\Template[2019-2020]\HTTPServer\obj\x86\Debug\HTTPServer.csprojAssemblyReference.cache
+C:\Users\Ahmed Hatem\Documents\NetworksProject\HTTP_Server-\Template[2019-2020]\HTTPServer\obj\x86\Debug\HTTPServer.csproj.CoreCompileInputs.cache
+C:\Users\Ahmed Hatem\Documents\NetworksProject\HTTP_Server-\Template[2019-2020]\HTTPServer\obj\x86\Debug\HTTPServer.exe
+C:\Users\Ahmed Hatem\Documents\NetworksProject\HTTP_Server-\Template[2019-2020]\HTTPServer\obj\x86\Debug\HTTPServer.pdb

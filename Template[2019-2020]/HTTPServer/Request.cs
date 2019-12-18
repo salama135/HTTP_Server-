@@ -78,8 +78,7 @@ namespace HTTPServer
 
             method = RequestMethod.GET;
 
-            //relativeURI = "aboutus2.html";
-            relativeURI = requestLine[1].Split('/')[1];
+            relativeURI = requestLine[1];
             
             if (!ValidateIsURI(relativeURI))
                 return false;

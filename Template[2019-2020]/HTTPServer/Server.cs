@@ -74,6 +74,7 @@ namespace HTTPServer
                 catch (Exception ex)
                 {
                     // TODO: log exception using Logger class
+                    Logger.LogException(ex);
                     Console.WriteLine(ex.Message);
                 }
             }
@@ -84,67 +85,78 @@ namespace HTTPServer
 
         Response HandleRequest(Request request)
         {
-            string content, path = "";
+            string content, ResponsePath ,RootPath = Configuration.RootPath + "\\";
             StatusCode RStatusCode;
             Response ResponseToSend;
             try
             {
-                path = Configuration.RootPath + "\\";
-
                 //TODO: check for bad request 
-                if (!request.ParseRequest())
+                if (request.ParseRequest())
                 {
-                    RStatusCode = StatusCode.BadRequest;
-                    path += Configuration.BadRequestDefaultPageName;
-                }//TODO: check for redirect
-                else if (Configuration.RedirectionRules.ContainsKey(request.relativeURI))
-                {
-                    path += Configuration.RedirectionRules[request.relativeURI];
-                    RStatusCode = StatusCode.Redirect;
-                }
-                else if (File.Exists(path)) //TODO: map the relativeURI in request to get the physical path of the resource.
-                {
-                    path += request.relativeURI;
                     RStatusCode = StatusCode.OK;
+                    ResponsePath =  RootPath + request.relativeURI;
+
+                    //TODO: check for redirect
+                    if (Configuration.RedirectionRules.ContainsKey(request.relativeURI.TrimStart('/')))
+                    {
+                        RStatusCode = StatusCode.Redirect;
+                        ResponsePath = GetRedirectionPagePathIFExist(request.relativeURI);
+                    }
+                    else if (request.relativeURI == "/")
+                    {
+                        ResponsePath = LoadDefaultPage("main.html");
+                    }
+
                 }
                 else
                 {
-                    RStatusCode = StatusCode.NotFound;
-                    path += Configuration.NotFoundDefaultPageName;
+                    RStatusCode = StatusCode.BadRequest;
+                    ResponsePath = RootPath + Configuration.BadRequestDefaultPageName;
                 }
+                
+               
 
+                //TODO: map the relativeURI in request to get the physical path of the resource.
+                
 
                 //TODO: check file exists
+                if (!File.Exists(ResponsePath))
+                {
+                    RStatusCode = StatusCode.NotFound;
+                    ResponsePath = RootPath + Configuration.NotFoundDefaultPageName;
+                }
 
-                path = path.Trim();
+                ResponsePath = ResponsePath.Trim();
+
                 //TODO: read the physical file
-                content = File.ReadAllText(path);
-
-                Console.WriteLine(path);
+                content = File.ReadAllText(ResponsePath);
+                 
                 // Create OK response
             }
             catch (Exception ex)
             {
                 // TODO: log exception using Logger class
-                // TODO: in case of exception, return Internal Server Error. 
+                // TODO: in case of exception, ret   urn Internal Server Error. 
+                Logger.LogException(ex);
+
                 RStatusCode = StatusCode.InternalServerError;
-                path += Configuration.InternalErrorDefaultPageName;
+                ResponsePath = RootPath + Configuration.InternalErrorDefaultPageName;
 
                 //TODO: read the physical file
-                content = File.ReadAllText(path);
-                path = path.Trim();
+                ResponsePath = ResponsePath.Trim();
+                content = File.ReadAllText(ResponsePath);
                 Console.WriteLine(ex.Message);
             }
-
-            ResponseToSend = new Response(RStatusCode, "text/html", content, path);
+            
+            ResponseToSend = new Response(RStatusCode, "text/html", content, ResponsePath);
             return ResponseToSend;
         }
 
         private string GetRedirectionPagePathIFExist(string relativePath)
         {
             // using Configuration.RedirectionRules return the redirected page path if exists else returns empty
-            
-            return string.Empty;
+
+            return Configuration.RootPath + "\\" +  Configuration.RedirectionRules[relativePath.TrimStart('/')];
         }
 
         private string LoadDefaultPage(string defaultPageName)
@@ -153,7 +165,7 @@ namespace HTTPServer
             // TODO: check if filepath not exist log exception using Logger class and return empty string
             
             // else read file and return its content
-            return string.Empty;
+            return filePath;
         }
 
         private void LoadRedirectionRules(string filePath)
@@ -177,9 +189,9 @@ namespace HTTPServer
             }
             catch (Exception ex)
             {
-                // TODO: log exception using Logger class               
+                // TODO: log exception using Logger class
+                Logger.LogException(ex);
                 Console.WriteLine(ex.Message);
-
                 Environment.Exit(1);
             }
         }
