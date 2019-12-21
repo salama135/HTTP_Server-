@@ -15,6 +15,12 @@ namespace HTTPServer
             //Datetime:
             //message:
             // for each exception write its details associated with datetime 
+            FileStream fs = new FileStream("log.txt", FileMode.Create);
+            StreamWriter sw = new StreamWriter(fs);
+            sw.WriteLine("Date: " + System.DateTime.Now.ToString());
+            sw.WriteLine("Message: " + ex.Message);
+            sw.Close();
+            fs.Close();
         }
     }
 }
